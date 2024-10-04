@@ -11,7 +11,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker login -u User -p $LOGIN_PASSWORD
+      
       - docker build -t ecomm .
       - docker tag ecomm:latest 471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest
   post_build:
