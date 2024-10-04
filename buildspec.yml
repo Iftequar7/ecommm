@@ -21,5 +21,4 @@ phases:
       - docker push 471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest
       - printf '[{"name":"AppRunner","imageUri":"%s"}]' 471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest > imagedefinitions.json
       - cat imagedefinitions.json
-artifacts:
-    files: imagedefinitions.json
+
