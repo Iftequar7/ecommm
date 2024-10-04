@@ -5,20 +5,20 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 474011752432.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=474011752432.dkr.ecr.us-east-1.amazonaws.com/ecomm
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 471112976463.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t ecomm .
-      - docker tag ecomm:latest 474011752432.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest
+      - docker tag ecomm:latest 471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 474011752432.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest
-      - printf '[{"name":"AppRunner","imageUri":"%s"}]' 474011752432.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest > imagedefinitions.json
+      - docker push 471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest
+      - printf '[{"name":"AppRunner","imageUri":"%s"}]' 471112976463.dkr.ecr.us-east-1.amazonaws.com/ecomm:latest > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
